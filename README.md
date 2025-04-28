@@ -39,7 +39,7 @@ Hostels and clubs are also populated with example entries.
 **Purpose**
 Enhance administrative efficiency.
 
-Improve data security, accessibility, and retrieval.
+Improve data security, accessibility, and retrieval. 
 
 Support future scalability for larger educational setups.
 
