@@ -1,0 +1,126 @@
+-- Creating the database
+CREATE DATABASE IF NOT EXISTS StudentDB;
+USE StudentDB;
+
+-- Creating the Branches table
+CREATE TABLE Branches (
+    Branch_name VARCHAR(10) PRIMARY KEY,
+    Head_of_Department VARCHAR(50),
+    No_of_Students INT,
+    No_of_Faculty INT
+);
+
+-- Inserting into Branches
+INSERT INTO Branches VALUES 
+('CSE', 'Prof. Anil Mehta', 50, 20),
+('IT', 'Prof. Rajiv Sinha', 50, 20),
+('ECE', 'Prof. Kiran Desai', 50, 20),
+('EE', 'Prof. Sandeep Rathi', 50, 20),
+('ME', 'Prof. Manoj Verma', 50, 20);
+
+-- Creating the Students table
+CREATE TABLE Students (
+    Roll_No VARCHAR(10) PRIMARY KEY,
+    Name VARCHAR(50),
+    Branch VARCHAR(10),
+    Phone_No VARCHAR(15),
+    DOB DATE,
+    Email VARCHAR(100),
+    Address TEXT,
+    CGPA DECIMAL(3,2),
+    FOREIGN KEY (Branch) REFERENCES Branches(Branch_name)
+);
+
+-- Sample Insert for Students (10 for each branch)
+INSERT INTO Students (Roll_No, Name, Branch, Phone_No, DOB, Email, Address, CGPA) VALUES
+('23CSE01', 'Aaradhya Sharma', 'CSE', '9845612345', '2005-04-15', 'aaru@23@gmail.com', 'Delhi', 8.4),
+('23CSE02', 'Ananya Mehta', 'CSE', '9845612346', '2004-08-12', 'anya@xmail.com', 'Jaipur', 8.1),
+('23CSE03', 'Diya Gupta', 'CSE', '9845612347', '2004-05-23', 'diya_123@gmail.com', 'Mumbai', 7.9),
+('23CSE04', 'Kavya Nair', 'CSE', '9845612348', '2005-01-19', 'kavya!321@gmail.com', 'Kochi', 8.6),
+('23CSE05', 'Saanvi Rao', 'CSE', '9845612349', '2005-06-30', 'saanvi.r@rediffmail.com', 'Hyderabad', 8.0),
+('23CSE06', 'Isha Sen', 'CSE', '9845612350', '2004-07-10', 'isha_sen123@mail.com', 'Kolkata', 7.8),
+('23CSE07', 'Myra Kapoor', 'CSE', '9845612351', '2005-09-05', 'myra_kapoor99@gmail.com', 'Chandigarh', 9.1),
+('23CSE08', 'Meera Joshi', 'CSE', '9845612352', '2004-12-25', 'meerajoshi87@gmail.com', 'Pune', 8.2),
+('23CSE09', 'Tanya Bhat', 'CSE', '9845612353', '2005-03-11', 'tanya.bhat23@ymail.com', 'Bangalore', 8.7),
+('23CSE10', 'Riya Deshmukh', 'CSE', '9845612354', '2005-11-29', 'riya_deshmukh@gmail.com', 'Nagpur', 7.5),
+-- Repeat similarly for IT, ECE, EE, ME branches with unique roll nos and names
+-- Sample for IT branch
+('23IT01', 'Nitya Sharma', 'IT', '9845612360', '2005-08-22', 'nitya.sharma@xmail.com', 'Indore', 8.3),
+('23IT02', 'Simran Jain', 'IT', '9845612361', '2004-10-12', 'sim_jain321@gmail.com', 'Udaipur', 8.1),
+('23IT03', 'Tisha Verma', 'IT', '9845612362', '2005-06-17', 'tisha.v@outlook.com', 'Bhopal', 7.8),
+('23IT04', 'Neha Singh', 'IT', '9845612363', '2004-11-23', 'nehasingh_123@gmail.com', 'Kanpur', 8.5),
+('23IT05', 'Avni Kapoor', 'IT', '9845612364', '2005-02-14', 'avni@live.com', 'Lucknow', 8.2),
+('23IT06', 'Jiya Agarwal', 'IT', '9845612365', '2005-09-03', 'jiyaag_99@gmail.com', 'Patna', 8.0),
+('23IT07', 'Reeva Iyer', 'IT', '9845612366', '2004-07-01', 'reevaiyer23@ymail.com', 'Trivandrum', 8.4),
+('23IT08', 'Shruti Dixit', 'IT', '9845612367', '2005-04-19', 'shruti_dixit@rediffmail.com', 'Agra', 7.9),
+('23IT09', 'Pihu Chatterjee', 'IT', '9845612368', '2005-12-01', 'pihu_cht@gmail.com', 'Siliguri', 7.7),
+('23IT10', 'Sanya Khan', 'IT', '9845612369', '2004-03-27', 'sanyak@ymail.com', 'Noida', 8.6);
+
+-- Add similar inserts for ECE, EE, ME branches (10 students each)
+-- Students for ECE Branch
+INSERT INTO Students (Roll_No, Name, Branch, Phone_No, DOB, Email, Address, CGPA) VALUES
+('23ECE01', 'Ira Sharma', 'ECE', '9845612401', '2005-04-10', 'ira_s@xmail.com', 'Delhi', 8.0),
+('23ECE02', 'Trisha Nair', 'ECE', '9845612402', '2004-11-15', 'trisha_n@ymail.com', 'Chennai', 8.2),
+('23ECE03', 'Ridhi Patel', 'ECE', '9845612403', '2005-05-22', 'ridhip@live.com', 'Ahmedabad', 7.9),
+('23ECE04', 'Ishita Mehra', 'ECE', '9845612404', '2004-06-30', 'ishita_mehra@gmail.com', 'Pune', 8.4),
+('23ECE05', 'Tanisha Roy', 'ECE', '9845612405', '2005-01-25', 'tanisharoy23@xmail.com', 'Kolkata', 8.1),
+('23ECE06', 'Ritika Paul', 'ECE', '9845612406', '2004-10-20', 'ritikapaul99@gmail.com', 'Shillong', 7.8),
+('23ECE07', 'Zoya Khan', 'ECE', '9845612407', '2005-08-18', 'zoya_khan@ymail.com', 'Lucknow', 8.3),
+('23ECE08', 'Vanya Iyer', 'ECE', '9845612408', '2005-03-07', 'vanya.iyer@gmail.com', 'Bangalore', 8.7),
+('23ECE09', 'Lavanya Bhat', 'ECE', '9845612409', '2004-12-13', 'lavanya.bhat@outlook.com', 'Srinagar', 8.0),
+('23ECE10', 'Nandini Desai', 'ECE', '9845612410', '2004-09-11', 'nandini_d@rediffmail.com', 'Vadodara', 7.6);
+
+-- Students for ME Branch
+INSERT INTO Students (Roll_No, Name, Branch, Phone_No, DOB, Email, Address, CGPA) VALUES
+('23ME01', 'Bhavya Rao', 'ME', '9845612451', '2005-06-16', 'bhavyar@ymail.com', 'Nagpur', 7.9),
+('23ME02', 'Sneha Menon', 'ME', '9845612452', '2004-04-14', 'snehamenon99@mail.com', 'Cochin', 8.2),
+('23ME03', 'Anjali Dubey', 'ME', '9845612453', '2005-09-09', 'anjalidubey@live.com', 'Varanasi', 8.0),
+('23ME04', 'Aditi Shah', 'ME', '9845612454', '2005-12-05', 'aditi.shah@xmail.com', 'Surat', 8.4),
+('23ME05', 'Charvi Jain', 'ME', '9845612455', '2004-11-29', 'charvijain@gmail.com', 'Bhopal', 7.7),
+('23ME06', 'Divya Saxena', 'ME', '9845612456', '2005-02-18', 'divyasaxena@outlook.com', 'Indore', 8.5),
+('23ME07', 'Preeti Rani', 'ME', '9845612457', '2004-08-30', 'preeti_rani@mail.com', 'Ranchi', 8.1),
+('23ME08', 'Yamini Joshi', 'ME', '9845612458', '2005-01-20', 'yamini.j@xmail.com', 'Ajmer', 7.8),
+('23ME09', 'Prachi Thakur', 'ME', '9845612459', '2004-07-07', 'prachi_t@rediffmail.com', 'Shimla', 8.3),
+('23ME10', 'Ayesha Siddiqui', 'ME', '9845612460', '2005-10-23', 'ayesha.sid@gmail.com', 'Aligarh', 7.6);
+
+-- Students for EE Branch
+INSERT INTO Students (Roll_No, Name, Branch, Phone_No, DOB, Email, Address, CGPA) VALUES
+('23EE01', 'Mira Kale', 'EE', '9845612501', '2005-03-16', 'mirak@xmail.com', 'Mumbai', 8.2),
+('23EE02', 'Pallavi Reddy', 'EE', '9845612502', '2004-05-20', 'pallavired@ymail.com', 'Hyderabad', 7.9),
+('23EE03', 'Sakshi Arora', 'EE', '9845612503', '2005-09-27', 'sakshiarora_89@gmail.com', 'Chandigarh', 8.3),
+('23EE04', 'Kritika Mishra', 'EE', '9845612504', '2005-11-08', 'kritikam@live.com', 'Noida', 8.0),
+('23EE05', 'Niharika Joshi', 'EE', '9845612505', '2004-08-15', 'niharikajoshi@gmail.com', 'Dehradun', 7.7),
+('23EE06', 'Anushka Rawat', 'EE', '9845612506', '2004-06-25', 'anushkarawat@outlook.com', 'Mussoorie', 8.4),
+('23EE07', 'Vaishnavi Nair', 'EE', '9845612507', '2005-02-11', 'vaishnavi.n@xmail.com', 'Thiruvananthapuram', 8.1),
+('23EE08', 'Harshita Singh', 'EE', '9845612508', '2005-04-01', 'harshita_singh@mail.com', 'Ghaziabad', 8.0),
+('23EE09', 'Suhana Das', 'EE', '9845612509', '2004-12-19', 'suhana.das@rediffmail.com', 'Howrah', 7.8),
+('23EE10', 'Anvi Bhatt', 'EE', '9845612510', '2005-07-21', 'anvibhatt@gmail.com', 'Pithoragarh', 8.3);
+
+
+-- Creating the Hostels table
+CREATE TABLE Hostels (
+    Hostel_Name VARCHAR(20) PRIMARY KEY,
+    No_of_Students INT,
+    No_of_Rooms INT
+);
+
+-- Inserting into Hostels
+INSERT INTO Hostels VALUES
+('BJR', 30, 15),
+('Mahi', 30, 15),
+('Mansi', 30, 15);
+
+-- Creating the Clubs table
+CREATE TABLE Clubs (
+    Club_Name VARCHAR(50) PRIMARY KEY,
+    Club_Head VARCHAR(50),
+    No_of_Members INT
+);
+
+-- Inserting into Clubs
+INSERT INTO Clubs VALUES
+('Coding Club', 'Anaya Jain', 35),
+('Eco Club', 'Priya Rathi', 35),
+('Anti Ragging Club', 'Sneha Iyer', 35),
+('Photography Club', 'Tanvi Shekhar', 35),
+('Cultural Club', 'Ritika Bose', 35);
