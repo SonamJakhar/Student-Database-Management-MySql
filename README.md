@@ -1,5 +1,5 @@
 # Student-Database-Management-MySql
-###**Overview**
+###Overview
 
 
 This project is a Student Database Management System (SDMS) designed to modernize and streamline how educational institutions manage student information. It replaces traditional, manual record-keeping methods with an efficient, scalable, and secure digital system using MySQL databases.
